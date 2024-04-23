@@ -16,7 +16,7 @@ datasource db {
 
 model Store {
   id         String      @id @default(uuid()) @map("_id")
-  name       String      @unique
+  name       String
   userId     String
   billboards Billboard[] @relation("StoreToBillboard")
   categories Category[]  @relation("StoreToCategory")

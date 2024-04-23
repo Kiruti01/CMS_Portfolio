@@ -1,11 +1,10 @@
-import { NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs/server";
 import prismadb from "@/lib/prismadb";
+import { auth } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
-
     const body = await req.json();
 
     const { name } = body;
@@ -24,6 +23,7 @@ export async function POST(req: Request) {
         userId,
       },
     });
+
     return NextResponse.json(store);
   } catch (error) {
     console.log("[STORES_POST]", error);
