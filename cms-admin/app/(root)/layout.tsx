@@ -13,9 +13,9 @@ export default async function SetuLayout({
     redirect("/sign-in");
   }
 
-  const store = await prismadb.store.findFirst({
+  const store = await prismadb.store.findUnique({
     where: {
-      userId,
+      id: userId,
     },
   });
 
